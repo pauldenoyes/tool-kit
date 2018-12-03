@@ -2,6 +2,9 @@
 # - Get the Bearer token
 # - Then post a file to be treated by a remote API
 
+##Imports
+import http.client, urllib.request, urllib.parse, urllib.error, requests
+
 ##Get the Bearer token:
 headersGetBearerToken = {
                 # Request headers
