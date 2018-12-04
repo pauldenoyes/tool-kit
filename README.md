@@ -1,4 +1,4 @@
-# My tool-kit
+# Tool-kit
 
 **A collection of useful personal code snippets**
 
