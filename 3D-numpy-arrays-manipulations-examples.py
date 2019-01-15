@@ -45,6 +45,13 @@ print("")
 b = np.reshape(a, (6, 4))
 print(b)
 
+#Transpose the 3D array in order to have the firs element of each sub-sub-list as a row in a 2D array
+print("")
+b = np.transpose(a, (0, 2, 1))
+print(b)
+c = np.reshape(b, (12, 2))
+print(c)
+
 #Extend array with inner values for a specific step size
 print("")
 print(np.repeat(a, 3))
