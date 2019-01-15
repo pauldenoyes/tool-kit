@@ -1,7 +1,7 @@
 #3D numpy arrays manipulations examples
 import numpy as np
 
-a = [[[1., 2., 3., 4.],[5., 6., 7., 0.]],
+a = [[[1., 2.87498398469379846, 3., 4.],[0., 0., 0., 0.]],
     [[11., 12., 13., 14.],[14., 15., 16., 17]],
     [[21., 22., 23., 24],[24., 25., 26., 27.]]]
 
@@ -49,12 +49,29 @@ print(b)
 print("")
 print(np.repeat(a, 3))
 
-# Average without taking the 0s in account
+# Average accross a secific dimention without taking the 0s in account
+import time
 print("")
-#Replace zeros by nan because we can ignore them in np.nanmean
-b = np.array([[[x if x != 0 else np.nan for x in c] for c in b] for b in a])
+start=time.time()
+for i in range (0, 10000):
+    #Replace zeros by nan because we can ignore them in np.nanmean
+    b = np.array([[[x if x != 0 else np.nan for x in c] for c in b] for b in a])
+    #Then only make the average
+    c = np.nanmean(b, axis=1)
+print("")
 print(b)
-#Then only make the average
 print("")
-c = np.nanmean(b, axis=0)
 print(c)
+print(time.time()-start)
+a = np.array(a)
+print("")
+start=time.time()
+for i in range (0, 10000):
+    d = np.true_divide(a.sum(1),(a!=0).sum(1))
+print(d)
+print(time.time()-start)
+start=time.time()
+for i in range (0, 10000):
+    e = np.ma.masked_equal(a, 0).mean(axis=1)
+print(e)
+print(time.time()-start)
