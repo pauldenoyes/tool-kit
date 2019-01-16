@@ -82,3 +82,26 @@ for i in range (0, 10000):
     e = np.ma.masked_equal(a, 0).mean(axis=1)
 print(e)
 print(time.time()-start)
+
+# Add a new column on second axis of a 3D array
+print(a)
+    # Shape of a
+print(np.array(a).shape)
+    # Create the "column" to add
+c = [[[3], [3]]] * len(a)
+    # Check this "column" shape
+print(np.array(c).shape)
+    # Add it to a
+b = np.concatenate((a, c), axis=2)
+print(b)
+
+# Add elements along a NEW dimension
+d = np.stack((a,a))
+print(d)
+    ## Accross other axis
+d = np.stack((a,a), axis = 1)
+print(d)
+d = np.stack((a,a), axis = 2)
+print(d)
+d = np.stack((a,a), axis = -1)
+print(d)
