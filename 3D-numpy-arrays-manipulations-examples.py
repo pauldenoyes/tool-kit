@@ -95,7 +95,7 @@ print(np.array(c).shape)
 b = np.concatenate((a, c), axis=2)
 print(b)
 
-# Add elements along a NEW dimension
+# Add elements along a NEW dimension (i.e. the inputs are 3D but the output will be 4D)
 d = np.stack((a,a))
 print(d)
     ## Accross other axis
