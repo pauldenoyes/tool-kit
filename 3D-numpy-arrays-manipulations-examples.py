@@ -109,5 +109,6 @@ print(d)
 # Get the average of consecutive groups of N rows, for our 2D array a, having c columns (c/N must be an integer)
 # Ok it's only 2D, but that one was so cool I couldn't resist to write it down here.
 # Comes from that guy: https://stackoverflow.com/users/6583684/jona
+# "Sort of" SQL NTILE
 b = a.transpose().reshape(-1,N).mean(1).reshape(c,-1).transpose()
 print(b)
