@@ -15,4 +15,4 @@ Note that if you wish to use Keras, I highly recommend you install it's [TensorF
 
 \- _3D-numpy-arrays-manipulations-examples_: Get inside axis logics and some conditional operations on numpy arrays of 3 dimensions
 
-\- _Neural-Network-Sentiment-Analyses-2-Classes-With-Attention_: An interesting NLP "sentiment" classifier, originated from [Kaggle](https://www.kaggle.com/)'s contest "[Quora Insincere Questions Classification](https://www.kaggle.com/c/quora-insincere-questions-classification)"
+\- _Neural-Network-Sentiment-Analyses-2-Classes-With-Attention_: An interesting NLP "sentiment" classifier using Attention, originated from [Kaggle](https://www.kaggle.com/)'s contest "[Quora Insincere Questions Classification](https://www.kaggle.com/c/quora-insincere-questions-classification)"
