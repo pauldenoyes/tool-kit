@@ -1,6 +1,6 @@
 # Tool-kit
 
-**A collection of useful personal code snippets**
+**A collection of useful personal code chunks**
 
 \- _sql-pivot-on-dynamic-number-of-columns.sql_: When you need to pivot around attributes whose quality and/or quantity can change
 
@@ -14,3 +14,5 @@
 Note that if you wish to use Keras, I highly recommend you install it's [TensorFlow](https://www.tensorflow.org/install/) backend first.
 
 \- _3D-numpy-arrays-manipulations-examples_: Get inside axis logics and some conditional operations on numpy arrays of 3 dimensions
+
+\- _Neural-Network-Sentiment-Analyses-2-Classes-With-Attention_: A pretty correct classifier, originated from [Kaggle](https://www.kaggle.com/)'s contest "[Quora Insincere Questions Classification](https://www.kaggle.com/c/quora-insincere-questions-classification)"
