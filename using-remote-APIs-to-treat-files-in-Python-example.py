@@ -26,7 +26,7 @@ except Exception as e:
 endpoint = "https://end.point.url?paramIwantToPassHardcoded=paramValue"
 data = ({'files': open(r'C:\\Users\\user\\myFiles\\' + fileName, 'rb'),
         })
-headers = {'Stuff-for-header': 'stuff1'; param2=stuff2/stuff2bis; param3=stuff3',
+headers = {'Stuff-for-header': 'stuff1; param2=stuff2/stuff2bis&param3=stuff4; param3=stuff4',
            "Authorization": "Bearer " + bearerToken,}
 reponse = requests.post(endpoint,data['files'],headers=headers).json()
 print(reponse['nameOfTheJsonObjectYouWantToPrint'])
