@@ -12,11 +12,15 @@ listOfFiles = os.listdir(r'C:\Users\user\myFiles')
 subscription_key = 'MySubscriptionKey'
 api_end_point = 'https://westus.api.cognitive.microsoft.com/sts/v1.0'
 
-#Get the bearer token
-fetch_token_url = api_end_point + '/issueToken'
-headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-r_bearer = requests.post(fetch_token_url, headers=headers)
-bearer_access_token = r_bearer.text
+#Get the bearer token. Here we get it through a function, because the token expires pretty rapidly, you may need to regenerate it often,
+#and a function will make that easier
+def get_token():
+    fetch_token_url = api_end_point + '/issueToken'
+    headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+    response = requests.post(fetch_token_url, headers=headers)
+    return response.text
+bearer_access_token = get_token()
+
 #Call the speech-to-text Microsoft API with the bearer token to extract text from audio files
 api_end_point = 'https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-EN' #Here specify the appropriate cultural
 headers = {'Authorization': 'Bearer ' + bearer_access_token,
