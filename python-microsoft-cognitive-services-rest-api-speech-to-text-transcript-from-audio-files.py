@@ -28,7 +28,16 @@ headers = {'Authorization': 'Bearer ' + bearer_access_token,
 Text_vs_AudioFileName = []
 for fileName in listOfFiles:
     with open(r'C:\\Users\\user\\myFiles\\' + fileName, 'rb') as data:
-        r = requests.post(url = api_end_point, data = data, headers=headers).json()     #Send POST request and store the reply in 'r', converted in JSON format
+        try:    #Here we try to get the response, if not working we regenerate the bearer token and retry, else we set response text transcript to an empty string
+            r = requests.post(url = api_end_point, data = data['file'], headers=headers).json() #Send POST request and store the reply in 'r', converted in JSON format
+        except: #Generate a fresh bearer token
+            bearer_access_token = get_token()
+            headers = {'Authorization': 'Bearer ' + bearer_access_token,
+                       'Host': 'westus.stt.speech.microsoft.com',}
+            try:
+                r = requests.post(url = api_end_point, data = data['file'], headers=headers).json()
+            except:
+                r = {'DisplayText': ''}
         extracted_text = r['DisplayText']   #Extract text from the JSON reply
         Text_vs_AudioFileName.append([extracted_text, fileName])
 print(Text_vs_AudioFileName)
