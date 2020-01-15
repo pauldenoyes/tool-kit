@@ -1,18 +1,20 @@
-## CLASSER DES SEQUENCES, AVEC LE TANSFORMER BERT DE LA LIBRAIRIE TANSFORMERS
-## DE HUGGINGFACE, SUR LE BACKEND TENSORFLOW ET SON IMPLEMENTATION SPECIFIQUE
-## DE L'API KERAS.
-## NOUS ALLONS CLASSER CHAQUE PAIRE DE PHRASES EN DEUX CLASSES /
-##       LE SENS DE CHAQUE PHRASE DE LA PAIRE EST EQUIVALENT
-##               VS. 
-##       LE SENS DE CHAQUE PHRASE DE LA PAIRE N'EST PAS EQUIVALENT
-## Notre but est de trouver des équivalences sémantiques. Nous utilisons 
-## pour ce faire une tâche de classification, attribuant une classe aux paires de sens similaire,
-## et une autre classe aux paires de sens différents.
+## CLASSER DES PAIRES DE PHRASES, EN FINE-TUNANT LE TANSFORMER BERT DE LA LIBRAIRIE TANSFORMERS
+## DE HUGGINGFACE, SUR LE BACKEND TENSORFLOW ET SON IMPLEMENTATION SPECIFIQUE DE L'API KERAS.
+##
+##      NOUS ALLONS CLASSER CHAQUE PAIRE DE PHRASES EN DEUX CLASSES :
+##
+##            CLASSE 0 - LE SENS DE CHAQUE PHRASE DE LA PAIRE EST EQUIVALENT
+##                    VS. 
+##            CLASSE 1 - LE SENS DE CHAQUE PHRASE DE LA PAIRE N'EST PAS EQUIVALENT
+##
+## Notre but est de trouver des équivalences sémantiques entre les phrases de chaque paire. 
+## Nous utilisons pour ce faire une tâche de classification, attribuant une classe spécifique
+## aux paires de sens similaire, et une autre classe aux paires de sens différents.
 ## Nous aurions pu aussi utiliser des embeddings niveau phrase, en prenant par exemple
 ## l'embedding contextuel des séparateurs [CLS] et [SEP] de BERT, qui pourraient servir
 ## à "représenter" les phrases de la paire (cf. https://towardsdatascience.com/bleu-bert-y-comparing-sentence-scores-307e0975994d),
 ## pour ensuite comparer ces représentations avec la corrélation de Spearman
-## (sans doute préférable à la similarité cosinus dans ce cas là). 
+## (sans doute préférable à la similarité cosinus dans ce cas là).
 
 #Credits to : https://colab.research.google.com/drive/1l39vWjZ5jRUimSQDoUcuWGIoNjLjA2zu
 #OS : Windows 10
@@ -115,8 +117,8 @@ metric = tf.keras.metrics.SparseCategoricalAccuracy('accuracy')
 bert_model.compile(optimizer=optimizer, loss=loss, metrics=[metric])
 
 #   Entraîner le modèle avec la méthode "fit" de Keras
-#   BERT a déjà été préalablement pré-entrainé. Il nous est servi déjà pré-entraîné par l'API de HuggingFace.
-#   Ici l'entraînement ne fait que fine-tuner, spécialiser (en incrémental) le modèle (BERT dans notre cas).
+#   BERT a déjà été préalablement pré-entrainé de façon non supervisée. Il nous est servi déjà pré-entraîné par l'API de HuggingFace.
+#   Ici l'entraînement ne fait que fine-tuner, spécialiser (en incrémental et de façon supervisée) le modèle (BERT dans notre cas).
 print('\n', "Fine-tuning BERT avec MRPC (Microsoft Research Paraphrase Corpus)", '\n')
 bert_history = bert_model.fit(bert_train_dataset, epochs=3, validation_data=bert_validation_dataset)
 
