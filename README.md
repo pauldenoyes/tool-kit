@@ -19,4 +19,4 @@ Note that if you wish to use Keras, I highly recommend you install it's [TensorF
 
 \- _python-microsoft-cognitive-services-rest-api-speech-to-text-transcript-from-audio-files.py_: Name explicit enough
 
-\- _Example_Using_BERT_Transformer_For_Sequences_Pairs_Similarities_with_HuggingFace_API.py_: Name explicit enough
+\- _Example_Using_BERT_Transformer_For_Sequences_Pairs_Classification_with_HuggingFace_API.py_: Name explicit enough
