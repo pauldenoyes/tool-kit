@@ -2,9 +2,17 @@
 ## DE HUGGINGFACE, SUR LE BACKEND TENSORFLOW ET SON IMPLEMENTATION SPECIFIQUE
 ## DE L'API KERAS.
 ## NOUS ALLONS CLASSER CHAQUE PAIRE DE PHRASES EN DEUX CLASSES /
-#       LE SENS DE CHAQUE PHRASE DE LA PAIRE EST EQUIVALENT
-#               VS. 
-#       LE SENS DE CHAQUE PHRASE DE LA PAIRE N'EST PAS EQUIVALENT
+##       LE SENS DE CHAQUE PHRASE DE LA PAIRE EST EQUIVALENT
+##               VS. 
+##       LE SENS DE CHAQUE PHRASE DE LA PAIRE N'EST PAS EQUIVALENT
+## Notre but est de trouver des équivalences sémantiques. Nous utilisons 
+## pour ce faire une tâche de classification, attribuant une classe aux paires de sens similaire,
+## et une autre classe aux paires de sens différents.
+## Nous aurions pu aussi utiliser des embeddings niveau phrase, en prenant par exemple
+## l'embedding contextuel des séparateurs [CLS] et [SEP] de BERT, qui pourraient servir
+## à "représenter" les phrases de la paire (cf. https://towardsdatascience.com/bleu-bert-y-comparing-sentence-scores-307e0975994d),
+## pour ensuite comparer ces représentations avec la corrélation de Spearman
+## (sans doute préférable à la similarité cosinus dans ce cas là). 
 
 #Credits to : https://colab.research.google.com/drive/1l39vWjZ5jRUimSQDoUcuWGIoNjLjA2zu
 #OS : Windows 10
