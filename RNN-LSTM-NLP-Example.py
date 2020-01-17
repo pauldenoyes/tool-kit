@@ -61,7 +61,7 @@ for i in range (0, numberOfLSTMLayers):
     else:
         model.add(LSTM(maxAuthorizedSiseOfSentencesInWords, return_sequences=True)) #return_sequences=True for the last LSTM layer
         model.add(Dropout(rate = dropOut))
-model.add(Dense(1, activation='sigmoid')) #Dense dimension : 1 for sigmoid single output, 2 for softmax with 2 outputs etc...
+model.add(Dense(1, activation='sigmoid')) #Dense dimension : 1 to N, for instance if categorical predicted variable with N categories for N classes (you can use "to_categorical" from keras.utils.np_utils if needed), prefer softmax if more than 2 classes.
 print(model.summary())
 
 #Compile model
