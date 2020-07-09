@@ -20,3 +20,5 @@ Note that if you wish to use Keras, I highly recommend you install it's [TensorF
 \- _python-microsoft-cognitive-services-rest-api-speech-to-text-transcript-from-audio-files.py_: Name explicit enough
 
 \- _Example_Using_BERT_Transformer_For_Sequences_Pairs_Classification_with_HuggingFace_API.py_: Name explicit enough
+
+\- _stream_data_between_scripts_: Simple example to 'apparently' pass data between two scripts, streaming data from script 1, treat data in script 2, and still have treated data visible from script 1.
