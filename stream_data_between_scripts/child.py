@@ -7,10 +7,10 @@ def treat_data_from_parent(data_from_parent_process):
 
 #Fonction par laquelle va passer la data depuis fichier pilote
 def data_stream_parent_to_child(data_from_parent_process):
-        print('From child.py : ' 
-              + str(treat_data_from_parent(data_from_parent_process)) #Ici on envoie la data en traîtement
-              + ' Timestamp : ' 
-              + str(datetime.datetime.now()))
+    print('From child.py : ' 
+          + str(treat_data_from_parent(data_from_parent_process)) #Ici on envoie la data en traîtement
+          + ' Timestamp : ' 
+          + str(datetime.datetime.now()))
 
 #Code to be run when the script is explicitly called, but NOT when it's
 #imported as a module in parent.py
