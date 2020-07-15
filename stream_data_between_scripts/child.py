@@ -11,6 +11,7 @@ def data_stream_parent_to_child(data_from_parent_process):
           + str(treat_data_from_parent(data_from_parent_process)) #Ici on envoie la data en traîtement
           + ' Timestamp : ' 
           + str(datetime.datetime.now()))
+    return "String pour illustrer la sortie de la fonction - sinon retourne 'None'"
 
 #Code to be run when the script is explicitly called, but NOT when it's
 #imported as a module in parent.py
